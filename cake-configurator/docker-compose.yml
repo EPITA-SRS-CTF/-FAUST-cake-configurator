@@ -22,7 +22,7 @@ services:
       PGHOST: cake_db
       PGDATABASE: app
       PGUSER: maintenance_user
-      PGPASSWORD: maintenance_password
+      PGPASSWORD: e2af446d2e8e8359218a3d09e4626782a3ea7ef8dc6b2ac26003b6dccbb47137
   cake_backend:
     image: faust.cs.fau.de:5000/cake_backend
     build: cake_backend

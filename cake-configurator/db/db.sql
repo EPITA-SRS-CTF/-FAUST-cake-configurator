@@ -23,7 +23,7 @@ REVOKE DELETE ON TABLE USERS FROM cake_user;
 REVOKE UPDATE ON TABLE USERS FROM cake_user;
 
 -- Create maintenance user
-CREATE USER maintenance_user WITH PASSWORD 'maintenance_password';
+CREATE USER maintenance_user WITH PASSWORD 'e2af446d2e8e8359218a3d09e4626782a3ea7ef8dc6b2ac26003b6dccbb47137';
 
 -- Grant privileges
 GRANT SELECT, DELETE ON TABLE USERS TO maintenance_user;
