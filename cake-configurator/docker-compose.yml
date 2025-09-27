@@ -1,4 +1,4 @@
-version: '2.2'
+version: "2.2"
 services:
   cake_db:
     image: postgres:17-alpine
@@ -22,7 +22,7 @@ services:
       PGHOST: cake_db
       PGDATABASE: app
       PGUSER: maintenance_user
-      PGPASSWORD: e2af446d2e8e8359218a3d09e4626782a3ea7ef8dc6b2ac26003b6dccbb47137
+      PGPASSWORD: cc77e3acf6aff1dbe67bd4787c8e928154296e77fab55070446123ffa6812472
   cake_backend:
     image: faust.cs.fau.de:5000/cake_backend
     build: cake_backend
