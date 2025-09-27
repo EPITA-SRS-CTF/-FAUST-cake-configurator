@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     environment:
       POSTGRES_USER: cake_user
-      POSTGRES_PASSWORD: ilovecake
+      POSTGRES_PASSWORD: cc77e3acf6aff1dbe67bd4787c8e928154296e77fab55070446123ffa6812472
       POSTGRES_DB: app
     volumes:
       - ./db:/docker-entrypoint-initdb.d

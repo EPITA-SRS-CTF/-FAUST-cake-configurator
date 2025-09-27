@@ -130,7 +130,7 @@
       ******************************************************************
            MOVE  "pgsql://cake_db:5432/app"  TO  SQL-DS.
            EXEC SQL
-               CONNECT TO :SQL-DS USER cake_user USING ilovecake
+               CONNECT TO :SQL-DS USER cake_user USING cc77e3acf6aff1dbe67bd4787c8e928154296e77fab55070446123ffa6812472
            END-EXEC.
            IF  SQLCODE NOT = ZERO PERFORM SQL-ERROR-RTN.
            
