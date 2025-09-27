@@ -1,0 +1,43 @@
+version: '2.2'
+services:
+  cake_db:
+    image: postgres:17-alpine
+    container_name: cake_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: cake_user
+      POSTGRES_PASSWORD: ilovecake
+      POSTGRES_DB: app
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+      - postgres_data:/var/lib/postgresql/data
+  cake_cleanup:
+    image: faust.cs.fau.de:5000/cake_cleanup
+    build: cleanup
+    container_name: cake_cleanup
+    restart: unless-stopped
+    depends_on:
+      - cake_db
+    environment:
+      PGHOST: cake_db
+      PGDATABASE: app
+      PGUSER: maintenance_user
+      PGPASSWORD: maintenance_password
+  cake_backend:
+    image: faust.cs.fau.de:5000/cake_backend
+    build: cake_backend
+    container_name: cake_backend
+    restart: unless-stopped
+    ports:
+      - 4321:4321
+    depends_on:
+      - cake_db
+volumes:
+  postgres_data: null
+networks:
+  default:
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: fd42:d0ce:42::/64
